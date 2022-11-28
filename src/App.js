@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch';
+import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
+import { CreateTodoButton } from './CreateTodoButton';
 
-function App() {
+//import './App.css';
+
+const todos = [
+  {text: "cortar cebolla", completed: false},
+  {text: "Tomar el curso de intro a React", completed: false},
+  {text: "Llorar con la llorona", completed: false},
+];
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/react"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React with Platzi
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <TodoCounter />
+      <TodoSearch />
+      <TodoList>
+        {todos.map(todo => (
+            <TodoItem key={todo.text} text={todo.text} />
+        ))}
+      </TodoList>
+      <CreateTodoButton />
+    </React.Fragment>
   );
 }
 
