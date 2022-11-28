@@ -24,11 +24,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
     height: 48px;
     width: 48px;
     font-size: 24px;
-    font-weight: bold;
-    /* background-color: #CCC; */
   }
   
   .Icon-check {
